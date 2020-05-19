@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Technical Guide - InvoiceBldr</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Technical Guide";
+    var mkdocs_page_input_path = "tech.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> InvoiceBldr</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Technical Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#stack">Stack</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installationset-up-development">Installation/Set-up (Development)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-description">Environment Description</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#front-end">Front-End</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#back-end">Back-End</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-structure">File Structure</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#front-end-client">Front-End (Client)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#back-end-server">Back-End (Server)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notable-features-functionalities">Notable Features &amp; Functionalities</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#method">Method:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#matching-algorithm">Matching Algorithm</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pdf-render">PDF Render</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#csv-export">CSV Export</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#database">Database</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-tables-columns">Basic Tables &amp; Columns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#relational-table-columns">Relational Table &amp; Columns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#project_profiles">project_profiles:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cloud/">Cloud Infrastructure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../release-notes/">Semantic Versioning and Release Notes</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">InvoiceBldr</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Technical Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="developers">Developers</h1>
+<h2 id="stack">Stack</h2>
+<ul>
+<li>
+<p><code>Back-End</code>
+    <ul>
+    <li><a href="https://www.python.org/">Python</a></li>
+    <li><a href="https://palletsprojects.com/p/flask/">Flask</a></li>
+    </ul>
+    </br></p>
+</li>
+<li>
+<p><code>Front-End</code></p>
+</li>
+</ul>
+<p><ul>
+  <li><a href="https://www.javascript.com/">JavaScript</a></li>
+  <li><a href="https://reactjs.org/">React</a></li>
+  <li><a href="https://redux.js.org/">Redux</a></li>
+  <li><a href="https://ant.design/">Ant Design</a></li>
+  </ul></p>
+<ul>
+<li><code>Database</code>
+  <ul>
+  <li><a href="https://www.postgres.jlmstrategic.com/">PostgreSQL</a></li>
+  </ul></li>
+</ul>
+<h2 id="installationset-up-development">Installation/Set-up (Development)</h2>
+<pre><code># Back-end
+pipenv install      # Initial installation
+pipenv shell        # Start the virtual environment
+python app.py       # Start the back-end
+
+# Front-end
+npm install         # Initial installation
+npm start           # Start the front-end
+</code></pre>
+<h2 id="environment-description">Environment Description</h2>
+<h3 id="front-end"><u>Front-End</u></h3>
+<blockquote>
+<p>Front-end is built with React, utilizing redux for global state management/updates.</p>
+<p>Most of the components are leveraged from Ant Design, including forms, buttons, grids, and more.</p>
+<p>The front-end is currently hosted in the <a href="https://aws.amazon.com/s3">AWS S3</a> bucket.</p>
+</blockquote>
+<h3 id="back-end">Back-End</h3>
+<blockquote>
+<p>The back-end used to be hosted on an <a href="https://aws.amazon.com/ec2">AWS EC2</a> instance but recently has been transitioned into <a href="https://aws.amazon.com/elasticbeanstalk/">AWS EBS</a> (Elastic Beanstalk)</p>
+<p>Consequently, the zipped back-end code is stored in AWS S3 and is set-up by AWS EBS to compile the files and establish the server.</p>
+</blockquote>
+<h2 id="file-structure">File Structure</h2>
+<p>*<i>This section will <strong>not</strong> list out every file in the directory. Instead, it will focus on files with relative importance and lay out the general foundation for its core structure.<i></p>
+<h3 id="front-end-client">Front-End (Client)</h3>
+<pre><code>App.js
+index.js
+store.js                              # File for setting up middleware, mainly redux
+src/
+    actions/                          # Redux actions
+        admin/                        # Admin-related action types
+        profiles/                     # Profile-related action types
+        projects/                     # Project-related action types
+
+    components/                       # Folder for all the components.
+        admin                         # Contains functions/logic for admin edit/view
+        client                        # Contains functions/logic for  client dashboard
+        common                        # Contains functions/logic for  error handler and private routes
+        landingPage                   # Contains functions/logic for  landing page
+        lazyComponents                # Contains functions/logic for  candidate dashboard
+
+    images/                           # Contains the image assets used in the application
+    reducers/                         # Contains all redux reducers
+    utils/                            # Contains all utility files/helper functions
+</code></pre>
+<h3 id="back-end-server"><u>Back-End</u> (Server)</h3>
+<pre><code>app.py
+.env
+login.py
+authenticate.py                       # Contains all functions/logic for authenticating requests to the server
+helperFunctions.py                    # Contains all functions/logic for providing/destructuring helper functions
+.ebxtensions/
+    install-wkhtmltopdf.config        # Contains all functions/logic for installing wkhtmltopdf when deploying to EBS
+
+api\endpoints/
+    adminlogs.py                      # Contains all functions/logic for establishing/saving admin activity logs
+    assign.py                         # Contains all functions/logic for candidate/project association
+    delete.py                         # Contains all functions/logic for deleting candidates
+    edit.py                           # Contains all functions/logic for editing candidate information
+    email.py                          # Contains all functions/logic for sending emails within the app
+    export.py                         # Contains all functions/logic for exporting database values to csv
+    interview.py                      # Contains all functions/logic for modifying candidate interviews
+    note.py                           # Contains all functions/logic for candidate notes
+    notifications.py                  # Contains all functions/logic for admin notifications
+    pdf.py                            # Contains all functions/logic for rendering candidate profiles in pdf
+    profiles.py                       # Contains all functions/logic for profiles CRUD
+    projects.py                       # Contains all functions/logic for projects CRUD
+    submit.py                         # Contains all functions/logic for admin/candidate creation
+
+    client/
+        clientlogs.py                 # Contains all functions/logic for establishing/saving client activity logs
+        deleted.py                    # Contains all functions/logic for  deleting projects/orders
+        editProfile.py                # Contains all functions/logic for editing client profile
+        hired.py                      # Contains all functions/logic for managing hired candidates
+        order.py                      # Contains all functions/logic for modifying order information
+        pending.py                    # Contains all functions/logic for managing pending candidates
+        requested.py                  # Contains all functions/logic for managing requested candidates
+        resume.py                     # Contains all functions/logic for modifying candidate resumes
+        saved.py                      # Contains all functions/logic for managing saved candidates
+        scheduled.py                  # Contains all functions/logic for managing scheduled interviews/candidates
+
+cronJobs/                             # Contains all functions/logic for time-based operations
+templates/                            # Folder containing all templates rendered within the app
+    emails/
+</code></pre>
+<h2 id="notable-features-functionalities">Notable Features &amp; Functionalities</h2>
+<blockquote>
+<p>This section will highlight the major features and functionalities within TeamBldr.</p>
+</blockquote>
+<h3 id="logs">Logs</h3>
+<h4 id="method">Method:</h4>
+<blockquote>
+<p>Most actions triggered in TeamBldr go through a helper function that prepares and organizes the data to save as a log.</p>
+</blockquote>
+<h4 id="purpose">Purpose:</h4>
+<blockquote>
+<p>Tracking all activities within the application can be extremely beneficial. The usage information can be extracted via API call or csv export, transformed via technical script or Tableau, and loaded onto a dashboard or online Tableau interface.</p>
+<p>Based on the result of the ETL flow, analysts can derive meaning from the activity within TeamBldr. For instance, there are statistical models and methods that can employed by examining the client activity within the application and tying it back to the likelihood of that client's willingness to hire.</p>
+<p>Given the client's tendency towards certain logged actions within Teambldr over others, we can run an analysis on the impact of those logged actions (i.e. profile viewed, interview scheduled) and put together a basic classification model to divide the clients into groups. Once there is a categorization for the client's willingness to hire based on their recorded logged actions, we can run a logistic regression for any client that we want to classify as having high willingness to hire or not.</p>
+</blockquote>
+<h3 id="matching-algorithm">Matching Algorithm</h3>
+<blockquote>
+<p>Matching Criteria</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th align="center">Importance(Low to High)</th>
+<th align="center">Weight (Out of 100)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Position</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Location/Relocation</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Salary Expectation</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Company Experience</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Project Experience</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Required Skills</td>
+<td align="center">High</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>Required Certification</td>
+<td align="center">Medium</td>
+<td align="center">7.5</td>
+</tr>
+<tr>
+<td>Years of Experience</td>
+<td align="center">Medium</td>
+<td align="center">7.5</td>
+</tr>
+<tr>
+<td>Preferred Certification</td>
+<td align="center">Low</td>
+<td align="center">3.5</td>
+</tr>
+<tr>
+<td>Preferred Skills</td>
+<td align="center">Low</td>
+<td align="center">3.5</td>
+</tr>
+<tr>
+<td>Work Experience*</td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+</tbody>
+</table>
+<p>* Work experience matching compares all of the candidate's work experience with the order job description. Based on a match from cosine similarity, any matching words append to the overall score of the candidate's matching.</p>
+<h3 id="pdf-render">PDF Render</h3>
+<blockquote>
+<p>wkhtmltopdf</p>
+</blockquote>
+<h3 id="csv-export">CSV Export</h3>
+<blockquote>
+<p>Integrated SQL queries</p>
+</blockquote>
+<h2 id="database">Database</h2>
+<blockquote>
+<p>PostgreSQL is our database, hosted on AWS EC2.</p>
+</blockquote>
+<h3 id="basic-tables-columns">Basic Tables &amp; Columns</h3>
+<blockquote>
+<p>For information regarding the data types in PostgreSQL, please consult this <a href="https://www.postgresqltutorial.com/postgresql-data-types/">link</a>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Join Table</th>
+<th>Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td><code>project_profiles</code></td>
+<td><code>project</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="relational-table-columns">Relational Table &amp; Columns</h3>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Join Table</th>
+<th>Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td><code>project_profiles</code></td>
+<td><code>project</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="project_profiles">project_profiles:</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Column</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>join_id(primary key)</code></td>
+<td align="center"><code>serial ID</code></td>
+<td><code>ID depicting the join between candidates and projects</code></td>
+</tr>
+<tr>
+<td align="center"><code>bullhorn_id</code></td>
+<td align="center"><code>integer</code></td>
+<td><code>Old ID reference to the candidates migrated from Bullhorn</code></td>
+</tr>
+<tr>
+<td align="center"><code>candidate_id</code></td>
+<td align="center"><code>UUID</code></td>
+<td><code>New, official ID reference for the candidates</code></td>
+</tr>
+<tr>
+<td align="center"><code>project_id</code></td>
+<td align="center"><code>UUID</code></td>
+<td><code>Official ID reference for the associated project</code></td>
+</tr>
+<tr>
+<td align="center"><code>project_name</code></td>
+<td align="center"><code>varchar(50)</code></td>
+<td><code>Name of the project</code></td>
+</tr>
+<tr>
+<td align="center"><code>candidate_first_name*</code></td>
+<td align="center"><code>varchar(50)</code></td>
+<td><code>First name of the candidate associated</code></td>
+</tr>
+<tr>
+<td align="center"><code>candidate_last_name*</code></td>
+<td align="center"><code>varchar(50)</code></td>
+<td><code>First name of the candidate associated.</code></td>
+</tr>
+<tr>
+<td align="center"><code>date_added</code></td>
+<td align="center"><code>date</code></td>
+<td><code>Date in which the candidate was assigned to the project</code></td>
+</tr>
+<tr>
+<td align="center"><code>project_position</code></td>
+<td align="center"><code>varchar(50)</code></td>
+<td><code>Name of the candidate's position displayed to the project</code></td>
+</tr>
+<tr>
+<td align="center"><code>bill_rate</code></td>
+<td align="center"><code>real</code></td>
+<td><code>Bill rate(pay rate * qualifier) displayed to the client</code></td>
+</tr>
+<tr>
+<td align="center"><code>bill_rate_visibility</code></td>
+<td align="center"><code>boolean</code></td>
+<td><code>Client's visibility determinant for candidate's bill rate</code></td>
+</tr>
+<tr>
+<td align="center"><code>order_id</code></td>
+<td align="center"><code>UUID</code></td>
+<td><code>Official ID reference for the associated order, if any</code></td>
+</tr>
+<tr>
+<td align="center"><code>order_name</code></td>
+<td align="center"><code>varchar(60)</code></td>
+<td><code>Name of the associated order, if any</code></td>
+</tr>
+<tr>
+<td align="center"><code>stage</code></td>
+<td align="center"><code>varchar(50)</code></td>
+<td><code>Candidate's current stage in the hiring pipeline</code></td>
+</tr>
+</tbody>
+</table>
+<p>*The main reason for the separation between first and last name is to ensure the clients to go behind our back and poach our candidates.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cloud/" class="btn btn-neutral float-right" title="Cloud Infrastructure">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cloud/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
