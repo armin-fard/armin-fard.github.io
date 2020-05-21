@@ -99,7 +99,17 @@
             <div class="section">
               
                 <h1 id="vpc-model">VPC Model</h1>
+<blockquote>
+<p><em>The following diagram is a visualization of the InvoiceBldr AWS VPC.</em></p>
+</blockquote>
 <p><img alt="VPC" src="/img/InvoiceBldr.png" title="VPC Diagram" /></p>
+<blockquote>
+<p><ul>
+<li>Each microservice EBS instance is deployed using two subnets in two availability zones in order to configure Application Load Balancers.</li></p>
+<p><li>The Vue app communicates with each microservice through the managed SQS queues.</li></p>
+<p><li>The microservice dedicated to invoice processing sends but does not recieve messages from the other server-side microservices.</li> 
+</ul></p>
+</blockquote>
               
             </div>
           </div>
