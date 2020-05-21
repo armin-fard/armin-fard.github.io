@@ -3,8 +3,7 @@ extra_css: [extra.css]
 nav:
   - Home: index.md
   - Technical Guide: tech.md
-  - Cloud Infrastructure: cloud.md
-  - Semantic Versioning and Release Notes: release-notes.md
+  - Release Notes: release-notes.md
 theme: readthedocs
 markdown_extensions:
   - toc:

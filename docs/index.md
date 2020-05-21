@@ -1,7 +1,11 @@
-# TeamBldr (Internal) Documentation
+# InvoiceBldr
 
-_Last Revision: 3/31/20_
+_Last Revision: 5/18/20_
 
-> This is a test insertion
+_Latest Application Release: v1.5.1_
 
-> Welcome to the TeamReadr, the official <a href="https://www.profiles.jlmstrategic.com/">TeamBldr</a> documentation page. This documentation is for internal reference. As the features, structure, and implementations of the application change, the document will be updated accordingly and will serve as a guide for everyone.
+> The following documentation serves as a guide and technical documentation for InvoiceBldr, a sample application that allows <strong>Admin</strong> users to create invoices based on .csv datasets. The application supplies multiple pre-made .csv templates with pre-defined column names to be used by the user.
+
+> Invoices are stored in a PostgreSQL database and made accessible to <strong>Client</strong> users. Clients can view details regarding each invoice, download any attachments and supporting documents, leave notes to communicate back to the Admin, and finally approve each invoice to be processed by Admin.
+
+> In addition, Admins can extract aging reports for all or a subset of their associated Clients. Reports are fully customizable, allowing users to select and filter fields to extract.
