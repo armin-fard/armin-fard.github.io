@@ -16,7 +16,7 @@
 >   <li>Logs and reports</li>
 > </ul>
 
-## Framework
+## Frameworks
 
 > <u>UI Microservice</u>
 
@@ -119,14 +119,13 @@ invoice = s3_client.get_object(Bucket='invoice-docs', Key=f'{admin_id}/{client_i
 > [AWS SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) provides secure messaging queues that allow integration between decoupled or loosely coupled software systems.
 > SQS plays an essential role in implementing InvoiceBldr as a collection microservices in a decoupled design architecture. 
 
-> While SQS allows for both standard and FIFO queue configurations, InvoiceBldr uses the standard configuration to communicate between services. Using the standard queue allows for <strong>At Least Once Delivery</strong>.
+> While SQS allows for both standard and FIFO queue configurations, InvoiceBldr uses the standard configuration to communicate between services. Doing so allows the application microservices to utilize the <strong>At Least Once Delivery</strong> feature.
 
-> <strong>At Least Once Delivery</strong> ensures that every message is delivered at least once. However, some messages may be delivered more than once. 
-> This allows for more reliability in transmitting messages and requests between services, ensuring that an error occuring on the reciever does not result in a lost message.
+> <strong>At Least Once Delivery</strong> ensures communication reliability between decoupled services. If a message fails or is rejected by the reciever, it can be re-captured by the SQS queue, processed and re-sent.
 
 ### Example
 
-> This example demonstrates using the `sendMessage` method of the SQS Javascript SDK to create an invoice note.
+> This example demonstrates using the `sendMessage` method from the SQS Javascript SDK to create and save an invoice note.
 
     /* the message body will include the admin's user ID, the client's user ID, 
     the invoice number, and the text of the note */
@@ -134,7 +133,7 @@ invoice = s3_client.get_object(Bucket='invoice-docs', Key=f'{admin_id}/{client_i
         adminId: '12345',
         clientId:  '67890',
         invoiceNumber: '13579'
-        note: 'This is a sample note.'
+        body: 'This is a sample note.'
     }
 
     /* create an SQS client using the AWS SDK */
