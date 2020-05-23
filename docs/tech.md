@@ -126,7 +126,7 @@ print(response)
 > [AWS SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) provides secure messaging queues that allow integration between decoupled or loosely coupled software systems.
 > SQS plays an essential role in implementing InvoiceBldr as a collection of microservices in a decoupled design architecture. 
 
-> While SQS allows for both standard and FIFO queue configurations, InvoiceBldr uses a standard configuration to communicate between services. Doing so allows the application microservices to utilize the <strong>At Least Once Delivery</strong> feature.
+> While SQS allows for both standard and FIFO queue configurations, InvoiceBldr uses a standard configuration for communication between services. Doing so allows the application microservices to utilize the <strong>At Least Once Delivery</strong> feature.
 
 > <strong>At Least Once Delivery</strong> ensures communication reliability between decoupled services. If a message fails or is rejected by the reciever, it can be re-captured by the SQS queue, processed, and then re-sent.
 
