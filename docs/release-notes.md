@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.4.3
+> <em>This issue contains multiple bug fixes and improved performance stability stability.</em>
+> ### Bug fixes
+> <ul>
+>    <li>Fixed an issue that resulted in users being logged out after 5 minutes of inactivity.</li>
+>    <li>Fixed an issue that caused inconsistent color rendering when using Night Mode.</li>
+> </ul>
+
 ## v1.5.0
 > <em>Admins now have the ability to extract aging reports for a single client, a group of clients or for all clients.
 > Aging reports can be customized for any given interval of time. This version includes improved performance and stability in generating reports and submitting invoice notes.</em>
@@ -12,12 +20,4 @@
 > ### Bug fixes
 > <ul>
 >    <li>Fixed an issue that caused inconsistent delivery of invoice notes</li>
-> </ul>
-
-## v1.4.3
-> <em>This release includes minor bug that resulted in user sessions terminating too quickly.</em>
-> ### Bug fixes
-> <ul>
->    <li>Fixed an issue that resulted in users being logged out after 5 minutes of inactivity.</li>
->    <li>Fixed an issue that caused inconsistent color rendering when using NightMode</li>
 > </ul>
