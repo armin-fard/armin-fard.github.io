@@ -1,6 +1,6 @@
 # Release Notes
 
-## v1.4.3
+## v1.5.1
 > <em>This version includes improved user session management and enhanced stability for the Night Mode view.</em>
 > ### Bug fixes
 > <ul>
